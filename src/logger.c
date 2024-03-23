@@ -1,3 +1,5 @@
+#include <stdio.h>
+
 #include "logger.h"
 
 #define RED "\033[1;31m"
@@ -5,38 +7,43 @@
 #define YELLOW "\033[1;33m"
 #define RESET_COLOR "\033[0m"
 
-void logInfo(const char *text)
+void logInfo(const char *text, ...)
 {
     if (LOG_INFOS)
     {
-        logColoredText(text, GREEN);
+        va_list args;
+        va_start(args, text);
+        logColoredText(GREEN, text, args);
+        va_end(args);
     }
 }
 
-void logWarning(const char *text)
+void logWarning(const char *text, ...)
 {
     if (LOG_WARNINGS)
     {
-        logColoredText(text, YELLOW);
+        va_list args;
+        va_start(args, text);
+        logColoredText(YELLOW, text, args);
+        va_end(args);
     }
 }
 
-void logError(const char *text)
+void logError(const char *text, ...)
 {
     if (LOG_ERRORS)
     {
-        logColoredText(text, RED);
+        va_list args;
+        va_start(args, text);
+        logColoredText(RED, text, args);
+        va_end(args);
     }
 }
 
-static void logText(const char *text)
-{
-    printf("%s\n", text);
-}
-
-static void logColoredText(const char *text, const char *color)
+static void logColoredText(const char *color, const char *text, va_list args)
 {
     printf(color);
-    logText(text);
+    vprintf(text, args);
+    printf("\n");
     printf(RESET_COLOR);
 }

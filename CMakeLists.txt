@@ -10,7 +10,7 @@ file(GLOB includeFiles
     "include/*.h"
 )
 
-add_library(glad glad/glad.h glad/khrplatform.h glad/glad.c)
+add_library(glad lib/glad/glad.h lib/glad/khrplatform.h lib/glad/glad.c)
 
 add_executable(${PROJECT_NAME} ${srcFiles})
 

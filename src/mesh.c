@@ -1,4 +1,4 @@
-#include "../glad/glad.h"
+#include "../lib/glad/glad.h"
 #include <GLFW/glfw3.h>
 #include <stdio.h>
 #include <stdbool.h>
@@ -26,6 +26,7 @@ Mesh *initMesh(float vertices[], unsigned int verticeSize, unsigned int indices[
     glBindVertexArray(0);
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
 
+    logInfo("Mesh was initialized");
     return mesh;
 }
 
@@ -36,5 +37,6 @@ void disposeMesh(Mesh *mesh)
     { // Error
         disposeGLBuffer(mesh->glBuffers[i]);
     }
+    logInfo("Mesh was disposed");
     free(mesh);
 }

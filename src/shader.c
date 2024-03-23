@@ -23,6 +23,7 @@ Shader *initShader(int shaderType, const char *source)
     shader->id = glCreateShader(shaderType);
     glShaderSource(shader->id, 1, &source, NULL);
     glCompileShader(shader->id);
+    logInfo("Shader %d was initialized", shader->id);
     return shader;
 }
 
@@ -93,12 +94,15 @@ ShaderProgram *initProgram(char *vertexShaderPath, char *fragmentShaderPath, cha
         disposeShader(geometryShader);
     }
 
+    logInfo("Shader program %d was initialized", program->id);
+
     return program;
 }
 
 void disposeShader(Shader *shader)
 {
     glDeleteShader(shader->id);
+    logInfo("Shader %d was disposed", shader->id);
     free(shader);
 }
 
@@ -114,5 +118,6 @@ void disposeProgram(ShaderProgram *program)
         free(program->vertexShaderFile);
     }
     glDeleteProgram(program->id);
+    logInfo("Shader program %d was disposed", program->id);
     free(program);
 }

@@ -36,11 +36,13 @@ Window *initWindow(int width, int height, char *title, int resizable)
     }
 
     glViewport(0, 0, width, height);
+    logInfo("Window was initialized");
     return window;
 }
 
 void disposeWindow(Window *window)
 {
     glfwDestroyWindow(window->window);
+    logInfo("Window was disposed");
     free(window);
 }

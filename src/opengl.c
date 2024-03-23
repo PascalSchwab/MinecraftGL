@@ -1,10 +1,11 @@
-#include "../glad/glad.h"
+#include "../lib/glad/glad.h"
 #include <GLFW/glfw3.h>
 #include <stdio.h>
 #include <stdbool.h>
 #include <stdlib.h>
 
 #include "opengl.h"
+#include "logger.h"
 
 GLBuffer *initIntGLBuffer(int bufferType, unsigned int data[], unsigned int dataSize, int drawType)
 {
@@ -16,6 +17,7 @@ GLBuffer *initIntGLBuffer(int bufferType, unsigned int data[], unsigned int data
     glBindBuffer(bufferType, glBuffer->id);
     glBufferData(bufferType, dataSize, data, drawType);
     glBindBuffer(bufferType, 0);
+    logInfo("Int-GLBuffer %d was initialized", glBuffer->id);
     return glBuffer;
 }
 
@@ -29,6 +31,7 @@ GLBuffer *initFloatGLBuffer(int bufferType, float data[], unsigned int dataSize,
     glBindBuffer(bufferType, glBuffer->id);
     glBufferData(bufferType, dataSize, data, drawType);
     glBindBuffer(bufferType, 0);
+    logInfo("Float-GLBuffer %d was initialized", glBuffer->id);
     return glBuffer;
 }
 
@@ -45,17 +48,20 @@ VAO *initVAO()
     VAO *vao = malloc(sizeof(VAO));
     vao->id = 0;
     glGenVertexArrays(1, &vao->id);
+    logInfo("VAO %d was initialized", vao->id);
     return vao;
 }
 
 void disposeGLBuffer(GLBuffer *glBuffer)
 {
     glDeleteBuffers(1, &glBuffer->id);
+    logInfo("GLBuffer %d was disposed", &glBuffer->id);
     free(glBuffer);
 }
 
 void disposeVAO(VAO *vao)
 {
     glDeleteVertexArrays(1, &vao->id);
+    logInfo("VAO %d was disposed", &vao->id);
     free(vao);
 }

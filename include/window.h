@@ -3,16 +3,17 @@
 
 #include "main.h"
 
-typedef struct{
+typedef struct
+{
     unsigned int width;
     unsigned int height;
-    char* title;
+    char *title;
     unsigned int resizable;
-    GLFWwindow* window;
+    GLFWwindow *window;
 } Window;
 
-Window* initWindow(int width, int height, char* title, int resizable);
+Window *initWindow(int width, int height, char *title, int resizable);
 
-void disposeWindow(Window* window);
+void disposeWindow(Window *window);
 
 #endif

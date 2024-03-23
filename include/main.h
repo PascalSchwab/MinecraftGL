@@ -1,11 +1,12 @@
 #ifndef __MAIN__
 #define __MAIN__
 
-#include "../glad/glad.h"
+#include "../lib/glad/glad.h"
 #include <GLFW/glfw3.h>
 #include <stdio.h>
 #include <stdbool.h>
 #include <stdlib.h>
+#include <stdarg.h>
 
 #include "opengl.h"
 #include "window.h"
