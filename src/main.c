@@ -1,4 +1,12 @@
+#include "../lib/glad/glad.h"
+#include <GLFW/glfw3.h>
+#include <stdlib.h>
+#include <stdbool.h>
+
 #include "main.h"
+#include "window.h"
+#include "shader.h"
+#include "mesh.h"
 
 float vertices[] = {
     0.5f, 0.5f, 0.0f,

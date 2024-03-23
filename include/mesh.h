@@ -1,16 +1,16 @@
 #ifndef __MESH__
 #define __MESH__
 
-#include "main.h"
+#include "opengl.h"
 
-typedef struct 
+typedef struct
 {
-    VAO* vao;
-    GLBuffer* glBuffers[3];
+    VAO *vao;
+    GLBuffer *glBuffers[3];
 } Mesh;
 
-Mesh* initMesh(float vertices[], unsigned int verticeSize, unsigned int indices[], unsigned int indiceSize);
+Mesh *initMesh(float vertices[], unsigned int verticeSize, unsigned int indices[], unsigned int indiceSize);
 
-void disposeMesh(Mesh* mesh);
+void disposeMesh(Mesh *mesh);
 
 #endif

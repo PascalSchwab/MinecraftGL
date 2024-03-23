@@ -1,26 +1,28 @@
 #ifndef __SHADER__
 #define __SHADER__
 
-#include "main.h"
+#include "iomanager.h"
 
-typedef struct{
+typedef struct
+{
     unsigned int id;
     unsigned int shaderType;
 } Shader;
 
-typedef struct{
+typedef struct
+{
     unsigned int id;
-    File* vertexShaderFile;
-    File* fragmentShaderFile;
-    File* geometryShaderFile;
+    File *vertexShaderFile;
+    File *fragmentShaderFile;
+    File *geometryShaderFile;
 } ShaderProgram;
 
-Shader* initShader(int shaderType, const char* source);
+Shader *initShader(int shaderType, const char *source);
 
-ShaderProgram* initProgram(char* vertexShaderPath, char* fragmentShaderPath, char* geometryShaderPath);
+ShaderProgram *initProgram(char *vertexShaderPath, char *fragmentShaderPath, char *geometryShaderPath);
 
-void disposeShader(Shader* shader);
+void disposeShader(Shader *shader);
 
-void disposeProgram(ShaderProgram* program);
+void disposeProgram(ShaderProgram *program);
 
 #endif

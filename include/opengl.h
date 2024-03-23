@@ -1,21 +1,28 @@
-typedef struct{
+#ifndef __OPENGL__
+#define __OPENGL__
+
+typedef struct
+{
     unsigned int id;
     unsigned int bufferType;
     unsigned int drawType;
-}GLBuffer;
+} GLBuffer;
 
-typedef struct{
+typedef struct
+{
     unsigned int id;
-}VAO;
+} VAO;
 
-GLBuffer* initIntGLBuffer(int bufferType, unsigned int data[], unsigned int dataSize, int drawType);
+GLBuffer *initIntGLBuffer(int bufferType, unsigned int data[], unsigned int dataSize, int drawType);
 
-GLBuffer* initFloatGLBuffer(int bufferType, float data[], unsigned int dataSize, int drawType);
+GLBuffer *initFloatGLBuffer(int bufferType, float data[], unsigned int dataSize, int drawType);
 
-void addAttributeGLBuffer(const GLBuffer* glBuffer, int index, int count);
+void addAttributeGLBuffer(const GLBuffer *glBuffer, int index, int count);
 
-VAO* initVAO();
+VAO *initVAO();
 
-void disposeGLBuffer(GLBuffer* glBuffer);
+void disposeGLBuffer(GLBuffer *glBuffer);
 
-void disposeVAO(VAO* vao);
+void disposeVAO(VAO *vao);
+
+#endif

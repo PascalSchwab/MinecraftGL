@@ -1,7 +1,8 @@
 #ifndef __WINDOW__
 #define __WINDOW__
 
-#include "main.h"
+#include "../lib/glad/glad.h"
+#include <GLFW/glfw3.h>
 
 typedef struct
 {

@@ -1,3 +1,6 @@
+#ifndef __LOGGER__
+#define __LOGGER__
+
 #include <stdarg.h>
 
 #define LOG_ERRORS 1
@@ -9,3 +12,5 @@ void logWarning(const char *text, ...);
 void logError(const char *text, ...);
 
 static void logColoredText(const char *color, const char *text, va_list args);
+
+#endif

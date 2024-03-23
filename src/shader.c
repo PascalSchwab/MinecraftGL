@@ -1,4 +1,9 @@
+#include "../lib/glad/glad.h"
+#include <GLFW/glfw3.h>
+#include <stdlib.h>
+
 #include "shader.h"
+#include "logger.h"
 
 const char *vertexShaderSource =
     "#version 330 core\n"
